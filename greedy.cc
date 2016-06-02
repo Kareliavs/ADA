@@ -32,8 +32,8 @@ void greedy(int s[], int f[], int n)
 
 int main()
 {
-    int s[] =  {1, 3, 0, 5, 8, 5};
-    int f[] =  {2, 4, 6, 7, 9, 9};
+    int s[] =  {1, 3, 0, 5, 3, 5, 6, 8, 8, 2,12};
+    int f[] =  {2, 4, 6, 7, 9, 9,10,11,12,14,16};
     int n = sizeof(s)/sizeof(s[0]);
     cout<<"Actividades seleccionadas Recursivo"<<endl;
     Recursive(s, f,0, n);
