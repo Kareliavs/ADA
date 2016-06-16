@@ -33,18 +33,18 @@ timer++;
 u->dist=timer;
 cout<< u->id <<" inicio "<<u->dist<<endl;
 u->color=GREY;
-for(int i=0; i<u->adj.size();++i)
+for(int i=0; i<u->adj.size();++i)//voy por su lista de adyacencias
 {
     v=u->adj[i].first;
-    if(v->color==WHITE)
+    if(v->color==WHITE)//si no fue visitado
     {
-        v->pi=u;
-        DFS_VISIT(grafo,v);
+        v->pi=u;//indico su padre
+        DFS_VISIT(grafo,v);//lo visito
     }
 }
 u->color=BLACK;//TERMINA DE RECORRER
 timer=timer+1;
-u->f=timer;
+u->f=timer;//aumenta el tiempo global y se lo asigna
 cout<<"  "<< u->id<<" fin "<<u->f<<endl;
 
 }
@@ -52,13 +52,13 @@ void DFS(vector<Node*>& grafo)
 {
     for(int i=0; i<grafo.size();++i)
         {
-        grafo[i]->color=WHITE;
+        grafo[i]->color=WHITE;//inicializacion
         grafo[i]->pi=NULL;
         }
     timer=0;
     for(int i=0; i<grafo.size();++i)
         {
-            if(grafo[i]->color==WHITE)
+            if(grafo[i]->color==WHITE)//Si no fue visitado lo visito
             {
             DFS_VISIT(grafo,grafo[i]);
             }
@@ -79,8 +79,8 @@ int main()
     }
   cout<<endl<<"ingrese nodo de partida, llegada y peso "<<endl;
     for(int i=0;i<aristas;++i)
-    {cin>>a>>b;
-    grafo[a]->adj.push_back(make_pair(grafo[b],0));
+    {cin>>a>>b>>peso;
+    grafo[a]->adj.push_back(make_pair(grafo[b],peso));
     //grafo[b]->adj.push_back(make_pair(grafo[a],peso));//doble direccion
     }
     DFS(grafo);
@@ -89,12 +89,12 @@ int main()
 }
 ///6 8 626
 /*
-0 1
-0 3
-1 4
-2 4
-3 1
-4 3
-2 5
-5 5
+0 1 1
+0 3 1
+1 4 1
+2 4 1
+3 1 1
+4 3 1
+2 5 1
+5 5 1
 */
